@@ -1,0 +1,14 @@
+Project Outputs Generation Report
+---------------------------------
+Start Output Generation At 4:19:50 PM On 12/3/2017
+
+Output: Bill of Materials
+Type  : BOM
+From  : Project [KaRadioWired.PrjPcb]
+   Generated File[Bill of Materials-KaRadioWired.xlsx]
+
+
+Files Generated   : 1
+Documents Printed : 0
+
+Finished Output Generation At 4:20:21 PM On 12/3/2017

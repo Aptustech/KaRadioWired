@@ -1,0 +1,3 @@
+Layer Pairs Export File for PCB: C:\Users\Fred\Documents\Aptustech\Design\KaRadioWired\V1.0\KaRadioWired.PcbDoc
+LayersSetName=Top_Bot_Thru_Holes|DrillFile=karadiowired-roundholes.txt|DrillLayers=gtl,g1,g2,gbl
+LayersSetName=Top_Bot_Slot_Holes|DrillFile=karadiowired-slotholes.txt|DrillLayers=gtl,g1,g2,gbl

@@ -1,0 +1,86 @@
+Protel Design System Design Rule Check
+PCB File : C:\Users\Fred\Documents\Aptustech\Design\KaRadioWired\V1.0\KaRadioWired.PcbDoc
+Date     : 12/3/2017
+Time     : 4:09:39 PM
+
+Processing Rule : Clearance Constraint (Gap=0.125mm) (All),(All)
+Rule Violations :0
+
+Processing Rule : Short-Circuit Constraint (Allowed=No) (All),(All)
+Rule Violations :0
+
+Processing Rule : Un-Routed Net Constraint ( (All) )
+Rule Violations :0
+
+Processing Rule : Modified Polygon (Allow modified: No), (Allow shelved: No)
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=0.15mm) (Max=3mm) (Preferred=0.254mm) (All)
+Rule Violations :0
+
+Processing Rule : Power Plane Connect Rule(Relief Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)
+Rule Violations :0
+
+Processing Rule : Hole Size Constraint (Min=0.025mm) (Max=5mm) (All)
+Rule Violations :0
+
+Processing Rule : Hole To Hole Clearance (Gap=0.254mm) (All),(All)
+Rule Violations :0
+
+Processing Rule : Net Antennae (Tolerance=0mm) (All)
+Rule Violations :0
+
+Processing Rule : Board Clearance Constraint (Gap=0mm) (All)
+   Violation between Board Outline Clearance(Outline Edge): (0.185mm < 0.2mm) Between Arc (17.75mm,69.565mm) on Top Overlay And Board Edge 
+   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.2mm) Between Arc (4.06mm,-0.25mm) on Top Overlay And Board Edge 
+   Violation between Board Outline Clearance(Outline Edge): (0.19mm < 0.2mm) Between Arc (6.6mm,56.6mm) on Top Overlay And Board Edge 
+   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.2mm) Between Track (54.225mm,70.125mm)(65.775mm,70.125mm) on Top Overlay And Board Edge 
+   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.2mm) Between Track (65.775mm,69.2mm)(65.775mm,70.125mm) on Top Overlay And Board Edge 
+   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.2mm) Between Track (54.225mm,69.2mm)(54.225mm,70.125mm) on Top Overlay And Board Edge 
+   Violation between Board Outline Clearance(Outline Edge): (0.125mm < 0.2mm) Between Track (88.95mm,9.7mm)(88.95mm,12.3mm) on Top Overlay And Board Edge 
+   Violation between Board Outline Clearance(Outline Edge): (0.125mm < 0.2mm) Between Track (87.55mm,9.7mm)(88.95mm,9.7mm) on Top Overlay And Board Edge 
+   Violation between Board Outline Clearance(Outline Edge): (0.125mm < 0.2mm) Between Track (87.55mm,9.7mm)(87.55mm,12.3mm) on Top Overlay And Board Edge 
+   Violation between Board Outline Clearance(Outline Edge): (0.125mm < 0.2mm) Between Track (87.2mm,9.7mm)(87.2mm,12.3mm) on Top Overlay And Board Edge 
+   Violation between Board Outline Clearance(Outline Edge): (0.125mm < 0.2mm) Between Track (85.8mm,9.7mm)(87.2mm,9.7mm) on Top Overlay And Board Edge 
+   Violation between Board Outline Clearance(Outline Edge): (0.125mm < 0.2mm) Between Track (85.8mm,9.7mm)(85.8mm,12.3mm) on Top Overlay And Board Edge 
+   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.2mm) Between Track (10.2mm,0mm)(10.2mm,0.3mm) on Top Overlay And Board Edge 
+   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.2mm) Between Track (8.4mm,0mm)(10.2mm,0mm) on Top Overlay And Board Edge 
+   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.2mm) Between Track (8.4mm,0mm)(8.4mm,0.3mm) on Top Overlay And Board Edge 
+   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.2mm) Between Track (1.16mm,-1.25mm)(1.16mm,0.35mm) on Top Overlay And Board Edge 
+   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.2mm) Between Track (1.16mm,-1.25mm)(3.06mm,-1.25mm) on Top Overlay And Board Edge 
+   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.2mm) Between Track (5.06mm,-1.25mm)(6.96mm,-1.25mm) on Top Overlay And Board Edge 
+   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.2mm) Between Track (6.96mm,-1.25mm)(6.96mm,0.35mm) on Top Overlay And Board Edge 
+   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.2mm) Between Track (39.475mm,56.975mm)(39.475mm,70.7mm) on Top Overlay And Board Edge 
+   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.2mm) Between Track (30.075mm,61.425mm)(30.075mm,70.7mm) on Top Overlay And Board Edge 
+   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.2mm) Between Track (30.075mm,70.7mm)(39.475mm,70.7mm) on Top Overlay And Board Edge 
+   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.2mm) Between Track (49.2mm,69.6mm)(49.2mm,70.8mm) on Top Overlay And Board Edge 
+   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.2mm) Between Track (41.8mm,70.8mm)(49.2mm,70.8mm) on Top Overlay And Board Edge 
+   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.2mm) Between Track (41.8mm,69.6mm)(41.8mm,70.8mm) on Top Overlay And Board Edge 
+   Violation between Board Outline Clearance(Outline Edge): (Collision < 0.2mm) Between Track (-0.9mm,56.5mm)(-0.1mm,56.5mm) on Top Overlay And Board Edge 
+Rule Violations :26
+
+Processing Rule : Room 01-Amplifier (Bounding Region = (178.943mm, 26.924mm, 265.684mm, 43.053mm) (Disabled)(InComponentClass('01-Amplifier'))
+Rule Violations :0
+
+Processing Rule : Room 05-Power (Bounding Region = (178.75mm, 27mm, 190.75mm, 46mm) (Disabled)(InComponentClass('05-Power'))
+Rule Violations :0
+
+Processing Rule : Room 00-INDEX (Bounding Region = (179mm, 27.25mm, 214.25mm, 35.5mm) (Disabled)(InComponentClass('00-INDEX'))
+Rule Violations :0
+
+Processing Rule : Room 04-Ethernet (Bounding Region = (179mm, 27.25mm, 185.25mm, 35.75mm) (Disabled)(InComponentClass('04-Ethernet'))
+Rule Violations :0
+
+Processing Rule : Room 03-VS1053B (Bounding Region = (182mm, 48.975mm, 286.5mm, 67.225mm) (Disabled)(InComponentClass('03-VS1053B'))
+Rule Violations :0
+
+Processing Rule : Room 02-ESP-WROOM-32 (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (Disabled)(InComponentClass('02-ESP-WROOM-32'))
+Rule Violations :0
+
+Processing Rule : Height Constraint (Min=0mm) (Max=25.4mm) (Prefered=12.7mm) (All)
+Rule Violations :0
+
+
+Violations Detected : 26
+Waived Violations : 0
+Time Elapsed        : 00:00:13

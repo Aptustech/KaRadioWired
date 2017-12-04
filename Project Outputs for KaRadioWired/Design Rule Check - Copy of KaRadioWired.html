@@ -1,0 +1,462 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : segoe ui;
+			color : black;
+			background-color : #EDE7D9;
+			padding: 0.3em;
+		}
+
+		h1 {
+			font-size: 1.2em;
+		}		
+
+		h2 {
+			font-size: 1.2em;
+		}
+
+		body {
+			font-family : segoe ui;
+		}
+
+		td, th {
+			padding: 0.5em;
+			text-align : left;
+			width: 10em;
+		}
+		th {
+			background-color : #EEEEEE;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+			font-size: 0.9em;
+		}
+
+		.DRC_summary_header {
+			padding-bottom : 0.1em;
+			border : 0px solid black;
+			width: 100%;
+			align: left;
+		}
+
+		.DRC_summary_header_col1,
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3 {
+			color : black;
+			font-size:100%;
+			padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2em;
+			border : 0px solid black;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.DRC_summary_header_col1 {
+			font-weight: bold;
+			width: 8em;
+		}
+
+		.DRC_summary_header_col2 {
+			width: 0.1em;
+		
+		}
+
+		.DRC_summary_header_col3 {
+			width : auto;
+		}
+
+		.header_holder {
+		    Width = 100%;
+		    border = 0px solid green;
+		    padding = 0;
+		}
+
+
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+		{
+			left : 0;
+			top : 0;
+			padding: 0em;
+			padding-top : 0.1em;
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.front_matter_column1 {
+			width : 8em;
+			font-weight: bold;
+		}
+
+		.front_matter_column2 {
+			width: 0.1em;
+		}
+
+		.front_matter_column3 {
+			width : auto;
+		}
+
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : left;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #white;
+		}
+		tr.onmouseout_even { 
+			background-color : #FAFAFA;
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : #EEEEEE;
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #21489e;
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://C:\Users\Public\Documents\Altium\AD17\Templates\AD_logo.png
+		"><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td class="column1">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">12/3/2017</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">2:23:43 PM</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">00:00:15</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3"><a href="file:///C:\Users\Fred\Documents\Aptustech\Design\KaRadioWired\V1.0\Copy of KaRadioWired.PcbDoc" class="file"><acronym title="C:\Users\Fred\Documents\Aptustech\Design\KaRadioWired\V1.0\Copy of KaRadioWired.PcbDoc">C:\Users\Fred\Documents\Aptustech\Design\KaRadioWired\V1.0\Copy of KaRadioWired.PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td class="column2">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3">0</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">38</td></tr>
+</table>
+</td>
+</table><a name="IDHWFFHUG3ILEVEVVJPCSVFDNTCNMKVUNPOYHKDLGJHSLD2ZFHJUI"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">0</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID35S4NQCRIZVJEJS3MMC5XI2KYE3XRAMOM0115IOPCZWZTFMUK5V">Clearance Constraint (Gap=0.125mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDJM2VRIHHH1DIMY2GCI4TN5CK4PURG0RRVLSMVCNW1U5VDNFVZ5MC">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDNQZLK2EEXSPGGLXVUBDQ02IXOMVOSQWHGXPQFLD00XIJVTYOVCQK">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDTAHCITQDVIUFEUSRRVIZ204TK1HSVKJW10ZJ0MVXWFSHUMLHDIB">Modified Polygon (Allow modified: No), (Allow shelved: No)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID0HCXYEOWFGSDF210YUYR51RGGLDI0OQUE325ULONENSFCDDFASE">Width Constraint (Min=0.15mm) (Max=3mm) (Preferred=0.254mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDGNAY3JSYFA2WDH34I1EQXREIPHZMDGTLZ5QCZHFXE51IFATXXVIO">Power Plane Connect Rule(Relief Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID1NNPBADAQK32JR4MKJREY511IDXIR5NSWUTBXIGSUEC3CD5ICZMG">Hole Size Constraint (Min=0.025mm) (Max=2.54mm) (All)</a></td>
+<td class="column2">5</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDPDTMJWB0AFTAEUZZ4GE42LU1QIW0XAM1L0QJU1IIXK2BBNXHCMEF">Hole To Hole Clearance (Gap=0.254mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDWP0FDM0SWE1KLHW1D12DZ3ZW4BL4HLBWYASTE2J02VTMSE5NBKPP">Net Antennae (Tolerance=0mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDRKIBZ5O2OUN0LLGYPBBIYZFD4HMDEMMK5KI3T0DL2NTDFDTFYSAI">Board Clearance Constraint (Gap=0mm) (All)</a></td>
+<td class="column2">33</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDQZXSKS2XJX0HGPS5EJOE40MEZCFCXGNIJJ1XV2DNXSCAQDLKE5DG">Room 01-Amplifier (Bounding Region = (178.943mm, 26.924mm, 265.684mm, 43.053mm) (Disabled)(InComponentClass('01-Amplifier'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDHXJUEYOLY1JKOWB2YXLNCCHT5JYIG5LOO0RCA3LL54ES3HFG5AVE">Room 05-Power (Bounding Region = (178.75mm, 27mm, 190.75mm, 46mm) (Disabled)(InComponentClass('05-Power'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDAZDXOZ2VPASXMX3X0UT0WL4IZCIQCZKT2WDHICLSYACHH335V0ZL">Room 00-INDEX (Bounding Region = (179mm, 27.25mm, 214.25mm, 35.5mm) (Disabled)(InComponentClass('00-INDEX'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDXMKDGE2MY21PPQK2DYWWNTJGAD5ZCV31GMMRNSLTTMFUDIHHOWKF">Room 04-Ethernet (Bounding Region = (179mm, 27.25mm, 185.25mm, 35.75mm) (Disabled)(InComponentClass('04-Ethernet'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID0AOKNCSCIF14APRDRIXYIRMXFOMIORUH5DVNCN2KDC4CLU5FPRK">Room 03-VS1053B (Bounding Region = (182mm, 48.975mm, 286.5mm, 67.225mm) (Disabled)(InComponentClass('03-VS1053B'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDOX1LSWOI1L3QF2HYILRC4WQ5SE3Z3TKXZMUZGEGP0EB3X14BZL3D">Room 02-ESP-WROOM-32 (Bounding Region = (0mm, 0mm, 50.8mm, 25.4mm) (Disabled)(InComponentClass('02-ESP-WROOM-32'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID12Y251R0GSHFGB3G4GNZ500QXH1QF5I01F5LFVDFIWS52ZEFXPGN">Height Constraint (Min=0mm) (Max=25.4mm) (Prefered=12.7mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">38</td>
+</tr>
+</table><br><a name="ID1NNPBADAQK32JR4MKJREY511IDXIR5NSWUTBXIGSUEC3CD5ICZMG"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Hole Size Constraint (Min=0.025mm) (Max=2.54mm) (All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Fred\Documents\Aptustech\Design\KaRadioWired\V1.0\Copy of KaRadioWired.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2259.218mil|Location2.X=2386.452mil|Location1.Y=1432.446mil|Location2.Y=1559.68mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Fred\Documents\Aptustech\Design\KaRadioWired\V1.0\Copy of KaRadioWired.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2259.218mil|Location2.X=2386.452mil|Location1.Y=1432.446mil|Location2.Y=1559.68mil|Absolute=True">Hole Size Constraint: (3.2mm &gt; 2.54mm) Pad H2-1(4mm,12mm) on Multi-Layer Actual Hole Size = 3.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Fred\Documents\Aptustech\Design\KaRadioWired\V1.0\Copy of KaRadioWired.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5408.824mil|Location2.X=5536.058mil|Location1.Y=2652.918mil|Location2.Y=2780.153mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Fred\Documents\Aptustech\Design\KaRadioWired\V1.0\Copy of KaRadioWired.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5408.824mil|Location2.X=5536.058mil|Location1.Y=2652.918mil|Location2.Y=2780.153mil|Absolute=True">Hole Size Constraint: (3.2mm &gt; 2.54mm) Pad H3-1(84mm,43mm) on Multi-Layer Actual Hole Size = 3.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Fred\Documents\Aptustech\Design\KaRadioWired\V1.0\Copy of KaRadioWired.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5364.139mil|Location2.X=5491.373mil|Location1.Y=3339.926mil|Location2.Y=3467.16mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Fred\Documents\Aptustech\Design\KaRadioWired\V1.0\Copy of KaRadioWired.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5364.139mil|Location2.X=5491.373mil|Location1.Y=3339.926mil|Location2.Y=3467.16mil|Absolute=True">Hole Size Constraint: (3.2mm &gt; 2.54mm) Pad J3-0(82.865mm,60.45mm) on Multi-Layer Actual Hole Size = 3.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Fred\Documents\Aptustech\Design\KaRadioWired\V1.0\Copy of KaRadioWired.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4914.139mil|Location2.X=5041.373mil|Location1.Y=3339.926mil|Location2.Y=3467.16mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Fred\Documents\Aptustech\Design\KaRadioWired\V1.0\Copy of KaRadioWired.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4914.139mil|Location2.X=5041.373mil|Location1.Y=3339.926mil|Location2.Y=3467.16mil|Absolute=True">Hole Size Constraint: (3.2mm &gt; 2.54mm) Pad J3-0(71.435mm,60.45mm) on Multi-Layer Actual Hole Size = 3.2mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Fred\Documents\Aptustech\Design\KaRadioWired\V1.0\Copy of KaRadioWired.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2259.218mil|Location2.X=2386.452mil|Location1.Y=3558.43mil|Location2.Y=3685.664mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Fred\Documents\Aptustech\Design\KaRadioWired\V1.0\Copy of KaRadioWired.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2259.218mil|Location2.X=2386.452mil|Location1.Y=3558.43mil|Location2.Y=3685.664mil|Absolute=True">Hole Size Constraint: (3.2mm &gt; 2.54mm) Pad H1-1(4mm,66mm) on Multi-Layer Actual Hole Size = 3.2mm</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDRKIBZ5O2OUN0LLGYPBBIYZFD4HMDEMMK5KI3T0DL2NTDFDTFYSAI"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Board Clearance Constraint (Gap=0mm) (All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Fred\Documents\Aptustech\Design\KaRadioWired\V1.0\Copy of KaRadioWired.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2859.611mil|Location2.X=2868.735mil|Location1.Y=3771.324mil|Location2.Y=3780.448mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Fred\Documents\Aptustech\Design\KaRadioWired\V1.0\Copy of KaRadioWired.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2859.611mil|Location2.X=2868.735mil|Location1.Y=3771.324mil|Location2.Y=3780.448mil|Absolute=True">Board Outline Clearance(Outline Edge): (0.185mm &lt; 0.2mm) Between Arc (17.75mm,69.565mm) on Top Overlay And Board Edge </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Fred\Documents\Aptustech\Design\KaRadioWired\V1.0\Copy of KaRadioWired.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2322.072mil|Location2.X=2328.321mil|Location1.Y=963.149mil|Location2.Y=969.398mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Fred\Documents\Aptustech\Design\KaRadioWired\V1.0\Copy of KaRadioWired.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2322.072mil|Location2.X=2328.321mil|Location1.Y=963.149mil|Location2.Y=969.398mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.2mm) Between Arc (4.06mm,-0.25mm) on Top Overlay And Board Edge </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Fred\Documents\Aptustech\Design\KaRadioWired\V1.0\Copy of KaRadioWired.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2164.532mil|Location2.X=2173.656mil|Location1.Y=3247.407mil|Location2.Y=3256.53mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Fred\Documents\Aptustech\Design\KaRadioWired\V1.0\Copy of KaRadioWired.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2164.532mil|Location2.X=2173.656mil|Location1.Y=3247.407mil|Location2.Y=3256.53mil|Absolute=True">Board Outline Clearance(Outline Edge): (0.19mm &lt; 0.2mm) Between Arc (6.6mm,56.6mm) on Top Overlay And Board Edge </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Fred\Documents\Aptustech\Design\KaRadioWired\V1.0\Copy of KaRadioWired.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5310.399mil|Location2.X=5319.523mil|Location1.Y=1396.52mil|Location2.Y=1405.644mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Fred\Documents\Aptustech\Design\KaRadioWired\V1.0\Copy of KaRadioWired.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5310.399mil|Location2.X=5319.523mil|Location1.Y=1396.52mil|Location2.Y=1405.644mil|Absolute=True">Board Outline Clearance(Outline Edge): (0.175mm &lt; 0.2mm) Between Via (80mm,10mm) from Top Layer to Bottom Layer And Board Edge </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Fred\Documents\Aptustech\Design\KaRadioWired\V1.0\Copy of KaRadioWired.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5211.973mil|Location2.X=5221.097mil|Location1.Y=1396.52mil|Location2.Y=1405.644mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Fred\Documents\Aptustech\Design\KaRadioWired\V1.0\Copy of KaRadioWired.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5211.973mil|Location2.X=5221.097mil|Location1.Y=1396.52mil|Location2.Y=1405.644mil|Absolute=True">Board Outline Clearance(Outline Edge): (0.175mm &lt; 0.2mm) Between Via (77.5mm,10mm) from Top Layer to Bottom Layer And Board Edge </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Fred\Documents\Aptustech\Design\KaRadioWired\V1.0\Copy of KaRadioWired.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5074.178mil|Location2.X=5083.302mil|Location1.Y=1396.52mil|Location2.Y=1405.644mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Fred\Documents\Aptustech\Design\KaRadioWired\V1.0\Copy of KaRadioWired.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5074.178mil|Location2.X=5083.302mil|Location1.Y=1396.52mil|Location2.Y=1405.644mil|Absolute=True">Board Outline Clearance(Outline Edge): (0.175mm &lt; 0.2mm) Between Via (74mm,10mm) from Top Layer to Bottom Layer And Board Edge </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Fred\Documents\Aptustech\Design\KaRadioWired\V1.0\Copy of KaRadioWired.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4936.383mil|Location2.X=4945.507mil|Location1.Y=1396.52mil|Location2.Y=1405.644mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Fred\Documents\Aptustech\Design\KaRadioWired\V1.0\Copy of KaRadioWired.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4936.383mil|Location2.X=4945.507mil|Location1.Y=1396.52mil|Location2.Y=1405.644mil|Absolute=True">Board Outline Clearance(Outline Edge): (0.175mm &lt; 0.2mm) Between Via (70.5mm,10mm) from Top Layer to Bottom Layer And Board Edge </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Fred\Documents\Aptustech\Design\KaRadioWired\V1.0\Copy of KaRadioWired.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4818.273mil|Location2.X=4827.397mil|Location1.Y=1396.52mil|Location2.Y=1405.644mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Fred\Documents\Aptustech\Design\KaRadioWired\V1.0\Copy of KaRadioWired.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4818.273mil|Location2.X=4827.397mil|Location1.Y=1396.52mil|Location2.Y=1405.644mil|Absolute=True">Board Outline Clearance(Outline Edge): (0.175mm &lt; 0.2mm) Between Via (67.5mm,10mm) from Top Layer to Bottom Layer And Board Edge </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Fred\Documents\Aptustech\Design\KaRadioWired\V1.0\Copy of KaRadioWired.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4524.435mil|Location2.X=4530.684mil|Location1.Y=3781.324mil|Location2.Y=3787.573mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Fred\Documents\Aptustech\Design\KaRadioWired\V1.0\Copy of KaRadioWired.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4524.435mil|Location2.X=4530.684mil|Location1.Y=3781.324mil|Location2.Y=3787.573mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.2mm) Between Track (54.225mm,70.125mm)(65.775mm,70.125mm) on Top Overlay And Board Edge </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Fred\Documents\Aptustech\Design\KaRadioWired\V1.0\Copy of KaRadioWired.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4751.797mil|Location2.X=4758.046mil|Location1.Y=3780.995mil|Location2.Y=3787.244mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Fred\Documents\Aptustech\Design\KaRadioWired\V1.0\Copy of KaRadioWired.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4751.797mil|Location2.X=4758.046mil|Location1.Y=3780.995mil|Location2.Y=3787.244mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.2mm) Between Track (65.775mm,69.2mm)(65.775mm,70.125mm) on Top Overlay And Board Edge </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Fred\Documents\Aptustech\Design\KaRadioWired\V1.0\Copy of KaRadioWired.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4297.072mil|Location2.X=4303.322mil|Location1.Y=3780.995mil|Location2.Y=3787.244mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Fred\Documents\Aptustech\Design\KaRadioWired\V1.0\Copy of KaRadioWired.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4297.072mil|Location2.X=4303.322mil|Location1.Y=3780.995mil|Location2.Y=3787.244mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.2mm) Between Track (54.225mm,69.2mm)(54.225mm,70.125mm) on Top Overlay And Board Edge </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Fred\Documents\Aptustech\Design\KaRadioWired\V1.0\Copy of KaRadioWired.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5662.761mil|Location2.X=5671.885mil|Location1.Y=1395.536mil|Location2.Y=1404.66mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Fred\Documents\Aptustech\Design\KaRadioWired\V1.0\Copy of KaRadioWired.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5662.761mil|Location2.X=5671.885mil|Location1.Y=1395.536mil|Location2.Y=1404.66mil|Absolute=True">Board Outline Clearance(Outline Edge): (0.125mm &lt; 0.2mm) Between Track (88.95mm,9.7mm)(88.95mm,12.3mm) on Top Overlay And Board Edge </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Fred\Documents\Aptustech\Design\KaRadioWired\V1.0\Copy of KaRadioWired.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5607.643mil|Location2.X=5616.767mil|Location1.Y=1395.536mil|Location2.Y=1404.66mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Fred\Documents\Aptustech\Design\KaRadioWired\V1.0\Copy of KaRadioWired.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5607.643mil|Location2.X=5616.767mil|Location1.Y=1395.536mil|Location2.Y=1404.66mil|Absolute=True">Board Outline Clearance(Outline Edge): (0.125mm &lt; 0.2mm) Between Track (87.55mm,9.7mm)(88.95mm,9.7mm) on Top Overlay And Board Edge </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Fred\Documents\Aptustech\Design\KaRadioWired\V1.0\Copy of KaRadioWired.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5607.643mil|Location2.X=5616.767mil|Location1.Y=1395.536mil|Location2.Y=1404.66mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Fred\Documents\Aptustech\Design\KaRadioWired\V1.0\Copy of KaRadioWired.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5607.643mil|Location2.X=5616.767mil|Location1.Y=1395.536mil|Location2.Y=1404.66mil|Absolute=True">Board Outline Clearance(Outline Edge): (0.125mm &lt; 0.2mm) Between Track (87.55mm,9.7mm)(87.55mm,12.3mm) on Top Overlay And Board Edge </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Fred\Documents\Aptustech\Design\KaRadioWired\V1.0\Copy of KaRadioWired.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5593.863mil|Location2.X=5602.987mil|Location1.Y=1395.536mil|Location2.Y=1404.66mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Fred\Documents\Aptustech\Design\KaRadioWired\V1.0\Copy of KaRadioWired.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5593.863mil|Location2.X=5602.987mil|Location1.Y=1395.536mil|Location2.Y=1404.66mil|Absolute=True">Board Outline Clearance(Outline Edge): (0.125mm &lt; 0.2mm) Between Track (87.2mm,9.7mm)(87.2mm,12.3mm) on Top Overlay And Board Edge </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Fred\Documents\Aptustech\Design\KaRadioWired\V1.0\Copy of KaRadioWired.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5538.745mil|Location2.X=5547.869mil|Location1.Y=1395.536mil|Location2.Y=1404.66mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Fred\Documents\Aptustech\Design\KaRadioWired\V1.0\Copy of KaRadioWired.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5538.745mil|Location2.X=5547.869mil|Location1.Y=1395.536mil|Location2.Y=1404.66mil|Absolute=True">Board Outline Clearance(Outline Edge): (0.125mm &lt; 0.2mm) Between Track (85.8mm,9.7mm)(87.2mm,9.7mm) on Top Overlay And Board Edge </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Fred\Documents\Aptustech\Design\KaRadioWired\V1.0\Copy of KaRadioWired.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5538.745mil|Location2.X=5547.869mil|Location1.Y=1395.536mil|Location2.Y=1404.66mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Fred\Documents\Aptustech\Design\KaRadioWired\V1.0\Copy of KaRadioWired.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5538.745mil|Location2.X=5547.869mil|Location1.Y=1395.536mil|Location2.Y=1404.66mil|Absolute=True">Board Outline Clearance(Outline Edge): (0.125mm &lt; 0.2mm) Between Track (85.8mm,9.7mm)(85.8mm,12.3mm) on Top Overlay And Board Edge </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Fred\Documents\Aptustech\Design\KaRadioWired\V1.0\Copy of KaRadioWired.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2563.805mil|Location2.X=2570.054mil|Location1.Y=1018.899mil|Location2.Y=1025.148mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Fred\Documents\Aptustech\Design\KaRadioWired\V1.0\Copy of KaRadioWired.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2563.805mil|Location2.X=2570.054mil|Location1.Y=1018.899mil|Location2.Y=1025.148mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.2mm) Between Track (10.2mm,0mm)(10.2mm,0.3mm) on Top Overlay And Board Edge </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Fred\Documents\Aptustech\Design\KaRadioWired\V1.0\Copy of KaRadioWired.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2528.371mil|Location2.X=2534.621mil|Location1.Y=1018.899mil|Location2.Y=1025.148mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Fred\Documents\Aptustech\Design\KaRadioWired\V1.0\Copy of KaRadioWired.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2528.371mil|Location2.X=2534.621mil|Location1.Y=1018.899mil|Location2.Y=1025.148mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.2mm) Between Track (8.4mm,0mm)(10.2mm,0mm) on Top Overlay And Board Edge </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Fred\Documents\Aptustech\Design\KaRadioWired\V1.0\Copy of KaRadioWired.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2492.938mil|Location2.X=2499.188mil|Location1.Y=1018.899mil|Location2.Y=1025.148mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Fred\Documents\Aptustech\Design\KaRadioWired\V1.0\Copy of KaRadioWired.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2492.938mil|Location2.X=2499.188mil|Location1.Y=1018.899mil|Location2.Y=1025.148mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.2mm) Between Track (8.4mm,0mm)(8.4mm,0.3mm) on Top Overlay And Board Edge </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Fred\Documents\Aptustech\Design\KaRadioWired\V1.0\Copy of KaRadioWired.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2207.899mil|Location2.X=2214.148mil|Location1.Y=993.76mil|Location2.Y=1000.009mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Fred\Documents\Aptustech\Design\KaRadioWired\V1.0\Copy of KaRadioWired.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2207.899mil|Location2.X=2214.148mil|Location1.Y=993.76mil|Location2.Y=1000.009mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.2mm) Between Track (1.16mm,-1.25mm)(1.16mm,0.35mm) on Top Overlay And Board Edge </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Fred\Documents\Aptustech\Design\KaRadioWired\V1.0\Copy of KaRadioWired.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2245.3mil|Location2.X=2251.55mil|Location1.Y=971.285mil|Location2.Y=977.534mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Fred\Documents\Aptustech\Design\KaRadioWired\V1.0\Copy of KaRadioWired.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2245.3mil|Location2.X=2251.55mil|Location1.Y=971.285mil|Location2.Y=977.534mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.2mm) Between Track (1.16mm,-1.25mm)(3.06mm,-1.25mm) on Top Overlay And Board Edge </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Fred\Documents\Aptustech\Design\KaRadioWired\V1.0\Copy of KaRadioWired.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2398.844mil|Location2.X=2405.093mil|Location1.Y=971.285mil|Location2.Y=977.534mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Fred\Documents\Aptustech\Design\KaRadioWired\V1.0\Copy of KaRadioWired.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2398.844mil|Location2.X=2405.093mil|Location1.Y=971.285mil|Location2.Y=977.534mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.2mm) Between Track (5.06mm,-1.25mm)(6.96mm,-1.25mm) on Top Overlay And Board Edge </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Fred\Documents\Aptustech\Design\KaRadioWired\V1.0\Copy of KaRadioWired.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2436.245mil|Location2.X=2442.495mil|Location1.Y=993.76mil|Location2.Y=1000.009mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Fred\Documents\Aptustech\Design\KaRadioWired\V1.0\Copy of KaRadioWired.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2436.245mil|Location2.X=2442.495mil|Location1.Y=993.76mil|Location2.Y=1000.009mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.2mm) Between Track (6.96mm,-1.25mm)(6.96mm,0.35mm) on Top Overlay And Board Edge </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Fred\Documents\Aptustech\Design\KaRadioWired\V1.0\Copy of KaRadioWired.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3716.364mil|Location2.X=3722.613mil|Location1.Y=3792.313mil|Location2.Y=3798.563mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Fred\Documents\Aptustech\Design\KaRadioWired\V1.0\Copy of KaRadioWired.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3716.364mil|Location2.X=3722.613mil|Location1.Y=3792.313mil|Location2.Y=3798.563mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.2mm) Between Track (39.475mm,56.975mm)(39.475mm,70.7mm) on Top Overlay And Board Edge </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Fred\Documents\Aptustech\Design\KaRadioWired\V1.0\Copy of KaRadioWired.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3346.285mil|Location2.X=3352.534mil|Location1.Y=3792.313mil|Location2.Y=3798.563mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Fred\Documents\Aptustech\Design\KaRadioWired\V1.0\Copy of KaRadioWired.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3346.285mil|Location2.X=3352.534mil|Location1.Y=3792.313mil|Location2.Y=3798.563mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.2mm) Between Track (30.075mm,61.425mm)(30.075mm,70.7mm) on Top Overlay And Board Edge </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Fred\Documents\Aptustech\Design\KaRadioWired\V1.0\Copy of KaRadioWired.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3531.324mil|Location2.X=3537.573mil|Location1.Y=3803.962mil|Location2.Y=3810.211mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Fred\Documents\Aptustech\Design\KaRadioWired\V1.0\Copy of KaRadioWired.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3531.324mil|Location2.X=3537.573mil|Location1.Y=3803.962mil|Location2.Y=3810.211mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.2mm) Between Track (30.075mm,70.7mm)(39.475mm,70.7mm) on Top Overlay And Board Edge </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Fred\Documents\Aptustech\Design\KaRadioWired\V1.0\Copy of KaRadioWired.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4099.238mil|Location2.X=4105.487mil|Location1.Y=3793.749mil|Location2.Y=3799.999mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Fred\Documents\Aptustech\Design\KaRadioWired\V1.0\Copy of KaRadioWired.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4099.238mil|Location2.X=4105.487mil|Location1.Y=3793.749mil|Location2.Y=3799.999mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.2mm) Between Track (49.2mm,69.6mm)(49.2mm,70.8mm) on Top Overlay And Board Edge </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Fred\Documents\Aptustech\Design\KaRadioWired\V1.0\Copy of KaRadioWired.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3953.568mil|Location2.X=3959.818mil|Location1.Y=3807.899mil|Location2.Y=3814.148mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Fred\Documents\Aptustech\Design\KaRadioWired\V1.0\Copy of KaRadioWired.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3953.568mil|Location2.X=3959.818mil|Location1.Y=3807.899mil|Location2.Y=3814.148mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.2mm) Between Track (41.8mm,70.8mm)(49.2mm,70.8mm) on Top Overlay And Board Edge </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Fred\Documents\Aptustech\Design\KaRadioWired\V1.0\Copy of KaRadioWired.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3807.899mil|Location2.X=3814.148mil|Location1.Y=3793.749mil|Location2.Y=3799.999mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Fred\Documents\Aptustech\Design\KaRadioWired\V1.0\Copy of KaRadioWired.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3807.899mil|Location2.X=3814.148mil|Location1.Y=3793.749mil|Location2.Y=3799.999mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.2mm) Between Track (41.8mm,69.6mm)(41.8mm,70.8mm) on Top Overlay And Board Edge </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Fred\Documents\Aptustech\Design\KaRadioWired\V1.0\Copy of KaRadioWired.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2142.382mil|Location2.X=2148.631mil|Location1.Y=3244.907mil|Location2.Y=3251.156mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Fred\Documents\Aptustech\Design\KaRadioWired\V1.0\Copy of KaRadioWired.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2142.382mil|Location2.X=2148.631mil|Location1.Y=3244.907mil|Location2.Y=3251.156mil|Absolute=True">Board Outline Clearance(Outline Edge): (Collision &lt; 0.2mm) Between Track (-0.9mm,56.5mm)(-0.1mm,56.5mm) on Top Overlay And Board Edge </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Fred\Documents\Aptustech\Design\KaRadioWired\V1.0\Copy of KaRadioWired.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5701.639mil|Location2.X=5710.763mil|Location1.Y=2248.391mil|Location2.Y=2257.515mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Fred\Documents\Aptustech\Design\KaRadioWired\V1.0\Copy of KaRadioWired.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5701.639mil|Location2.X=5710.763mil|Location1.Y=2248.391mil|Location2.Y=2257.515mil|Absolute=True">Board Outline Clearance(Outline Edge): (0.125mm &lt; 0.2mm) Between Track (89mm,31.7mm)(89.475mm,31.225mm) on Signal Layer 2 And Board Edge </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Fred\Documents\Aptustech\Design\KaRadioWired\V1.0\Copy of KaRadioWired.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4680.266mil|Location2.X=4689.391mil|Location1.Y=1393.286mil|Location2.Y=1402.41mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Fred\Documents\Aptustech\Design\KaRadioWired\V1.0\Copy of KaRadioWired.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4680.266mil|Location2.X=4689.391mil|Location1.Y=1393.286mil|Location2.Y=1402.41mil|Absolute=True">Board Outline Clearance(Outline Edge): (0.015mm &lt; 0.2mm) Between Track (63.325mm,9.2mm)(64.6mm,10.475mm) on Signal Layer 1 And Board Edge </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br></body>
+</html>
