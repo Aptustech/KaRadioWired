@@ -4,6 +4,8 @@ The goal for this project is to have a high quality and repairable design.
 
 Power input is protected against reverse voltage connection and over voltage. I/O are protected against ESD. The design is based on 0603 sized components for easier manual soldering and repair. All meaningful signals are accessible on test points (solder side). Only the ethernet PHY is in QFN package.
 
+![alt tag](https://raw.githubusercontent.com/Aptustech/KaRadioWired/master/images/8525091512124902010.png)
+
 Main features are :
 
 - 2.4 inch Touch LCD 320x240
